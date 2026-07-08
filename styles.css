@@ -1,0 +1,81 @@
+/* Webfonts — loaded from Google Fonts (no font binaries were provided).
+   One @import per family so a bad spec can't break the whole set. */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap');
+
+:root {
+  /* Base palette */
+  --ink: #16130f;          /* warm near-black */
+  --ink-soft: #2a251e;     /* raised surfaces on dark */
+  --ivory: #f5f1e8;        /* warm off-white */
+  --ivory-soft: #ede8dc;   /* raised surfaces on light */
+  --brass: #9c7c4c;        /* metallic accent */
+  --brass-bright: #b6945f; /* accent on dark grounds */
+
+  /* Text */
+  --text-on-light: var(--ink);
+  --text-on-light-muted: #6e6659;
+  --text-on-dark: var(--ivory);
+  --text-on-dark-muted: #9a927f;
+
+  /* Surfaces */
+  --surface-light: var(--ivory);
+  --surface-dark: var(--ink);
+
+  /* Hairlines */
+  --hairline-on-light: rgba(22, 19, 15, 0.18);
+  --hairline-on-dark: rgba(245, 241, 232, 0.2);
+
+  /* Interactive */
+  --link-on-light: var(--ink);
+  --link-on-dark: var(--ivory);
+  --link-hover: var(--brass);
+  --link-hover-on-dark: var(--brass-bright);
+}
+
+:root {
+  /* Families */
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Jost", "Segoe UI", sans-serif;
+
+  /* Display (headlines) */
+  --display-size-xl: clamp(44px, 6.5vw, 92px);
+  --display-size-lg: clamp(32px, 4vw, 56px);
+  --display-weight: 500;
+  --display-leading: 1.06;
+  --display-tracking: 0.01em;
+
+  /* Labels (uppercase, letter-spaced) */
+  --label-size: 13px;
+  --label-size-sm: 11px;
+  --label-weight: 400;
+  --label-tracking: 0.22em;
+
+  /* Body / contact lines */
+  --body-size: 17px;
+  --body-weight: 300;
+  --body-leading: 1.6;
+  --body-tracking: 0.04em;
+}
+
+:root {
+  /* Spacing scale — generous, airy */
+  --space-1: 8px;
+  --space-2: 16px;
+  --space-3: 24px;
+  --space-4: 40px;
+  --space-5: 64px;
+  --space-6: 96px;
+  --space-7: 144px;
+
+  /* Page */
+  --page-pad: clamp(32px, 6vw, 96px);
+
+  /* Motion */
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --duration: 300ms;
+
+  /* Rules */
+  --rule-w: 1px;
+  --accent-rule-w: 32px; /* short brass rule used as an ornament */
+}
