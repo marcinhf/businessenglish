@@ -77,7 +77,10 @@
     line-height: 1.1;
     letter-spacing: var(--display-tracking);
     margin: 0;
-    white-space: nowrap;
+    /* No nowrap: 6.4cqi is tuned for half-width panels and clips the headline
+       in the ~550-900px single-column band. Balanced wrap gives the clean
+       two-line break instead (matches the approved reference screenshot). */
+    text-wrap: balance;
   }
 
   .head-group {
@@ -106,6 +109,7 @@
     text-transform: uppercase;
     margin: 0;
     line-height: 1.9;
+    text-wrap: balance; /* narrow containers: wrap symmetrically at the middot, not mid-phrase */
   }
   .panel--pl .direction { color: var(--text-on-light-muted); }
   .panel--en .direction { color: var(--text-on-dark-muted); }
