@@ -139,7 +139,7 @@
 </head>
 <body>
   <main class="page">
-    <section class="panel panel--pl" lang="pl">
+    <section class="panel panel--pl" lang="pl" data-screen-label="PL panel">
       <span class="lang-tag">PL</span>
       <div class="head-group">
         <h1>Tłumaczenia symultaniczne</h1>
@@ -152,7 +152,7 @@
       </div>
       <p class="note">Faktura VAT (B2B)</p>
     </section>
-    <section class="panel panel--en" lang="en">
+    <section class="panel panel--en" lang="en" data-screen-label="EN panel">
       <span class="lang-tag">EN</span>
       <div class="head-group">
         <h1>Simultaneous interpretation</h1>
@@ -167,18 +167,22 @@
     </section>
   </main>
   <script>
-    // Contact details assembled at runtime so scrapers reading the HTML
-    // source never see a complete phone number or email address.
+    // Contact details are stored XOR-encoded (key 42) so the page source
+    // contains no readable email address or phone number; they are decoded
+    // and wired to the tel:/mailto: links only at runtime, in the browser.
     (function () {
-      var d = ["+48", "501", "51", "83", "83"];
-      var em = "email" + "@" + "businessenglish" + "." + "pl";
+      var K = 42;
+      function d(a) { return a.map(function (n) { return String.fromCharCode(n ^ K); }).join(""); }
+      var email = d([79, 71, 75, 67, 70, 106, 72, 95, 89, 67, 68, 79, 89, 89, 79, 68, 77, 70, 67, 89, 66, 4, 90, 70]);
+      var tel   = d([1, 30, 18, 31, 26, 27, 31, 27, 18, 25, 18, 25]);
+      var phone = d([1, 30, 18, 10, 31, 26, 27, 10, 31, 27, 10, 18, 25, 10, 18, 25]);
       document.querySelectorAll('[data-c="phone"]').forEach(function (a) {
-        a.href = "tel:" + d.join("");
-        a.textContent = d.join(" ");
+        a.href = "tel:" + tel;
+        a.textContent = phone;
       });
       document.querySelectorAll('[data-c="email"]').forEach(function (a) {
-        a.href = "mail" + "to:" + em;
-        a.textContent = em;
+        a.href = "mail" + "to:" + email;
+        a.textContent = email;
       });
     })();
   </script>
